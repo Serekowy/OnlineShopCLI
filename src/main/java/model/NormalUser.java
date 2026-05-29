@@ -8,6 +8,6 @@ public class NormalUser extends User{
 
     @Override
     public void runMenu() {
-
+        System.out.println("Hello, " + getUsername());
     }
 }
