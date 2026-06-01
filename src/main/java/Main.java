@@ -49,6 +49,9 @@ public class Main {
                         display.registerError("Username or email already exists.");
                     }
                 }
+                case "3" -> {
+                    System.exit(0);
+                }
             }
         }
 
