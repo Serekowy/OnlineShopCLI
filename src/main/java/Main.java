@@ -3,7 +3,6 @@ import database.UserDao;
 import model.User;
 import service.UserService;
 import ui.Display;
-import util.PasswordUtil;
 
 import java.sql.SQLException;
 
@@ -29,9 +28,8 @@ public class Main {
                 case "1" -> {
                     String email = display.askForEmail();
                     String password = display.askForPassword();
-                    String hashedPass = PasswordUtil.hashPassword(password);
 
-                    User loggingUser = userService.loginUser(email, hashedPass);
+                    User loggingUser = userService.loginUser(email, password);
                     if(loggingUser != null) {
                         display.loginSuccess();
                         loggingUser.runMenu();
