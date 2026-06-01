@@ -26,15 +26,15 @@ public class Main {
 
             switch(input) {
                 case "1" -> {
-                    String email = display.askForEmail();
+                    String username = display.askForUsername();
                     String password = display.askForPassword();
 
-                    User loggingUser = userService.loginUser(email, password);
+                    User loggingUser = userService.loginUser(username, password);
                     if(loggingUser != null) {
                         display.loginSuccess();
                         loggingUser.runMenu();
                     } else {
-                        display.loginError("Wrong email or password.");
+                        display.loginError("Wrong username or password.");
                     }
                 }
                 case "2" -> {
@@ -43,7 +43,7 @@ public class Main {
                     String password = display.askForPassword();
                     String repeatPassword = display.askForRepeatPassword();
 
-                    if(userService.registerUser(username, email, password, repeatPassword)) {
+                    if(userService.registerUser(username, password, repeatPassword, email)) {
                         display.registerSuccess();
                     } else  {
                         display.registerError("Username or email already exists.");
